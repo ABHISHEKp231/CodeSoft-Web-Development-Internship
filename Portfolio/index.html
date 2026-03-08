@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhishek P | Anime Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1:#050816;
+      --bg2:#0a1430;
+      --bg3:#1b0f3d;
+      --card:rgba(255,255,255,0.08);
+      --card-border:rgba(255,255,255,0.16);
+      --text:#f7f8ff;
+      --muted:#cdd4ff;
+      --accent:#8b5cf6;
+      --accent2:#22d3ee;
+      --accent3:#ff4fd8;
+      --accent4:#ffd166;
+      --shadow:0 12px 35px rgba(0,0,0,0.35);
+    }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:'Poppins', sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(139,92,246,0.28), transparent 25%),
+        radial-gradient(circle at top right, rgba(34,211,238,0.18), transparent 28%),
+        radial-gradient(circle at bottom, rgba(255,79,216,0.16), transparent 25%),
+        linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+      min-height:100vh;
+      overflow-x:hidden;
+      position:relative;
+      cursor:none;
+    }
+
+    .cursor-dot,
+    .cursor-outline{
+      position:fixed;
+      top:0;
+      left:0;
+      transform:translate(-50%, -50%);
+      pointer-events:none;
+      z-index:9999;
+      border-radius:50%;
+    }
+
+    .cursor-dot{
+      width:10px;
+      height:10px;
+      background:linear-gradient(135deg, #22d3ee, #ff4fd8);
+      box-shadow:0 0 14px rgba(34,211,238,0.9);
+    }
+
+    .cursor-outline{
+      width:34px;
+      height:34px;
+      border:2px solid rgba(255,255,255,0.5);
+      box-shadow:0 0 18px rgba(139,92,246,0.35);
+      transition:width 0.2s ease, height 0.2s ease, border 0.2s ease, background 0.2s ease;
+    }
+
+    .floating-bg{
+      position:fixed;
+      inset:0;
+      overflow:hidden;
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .shape{
+      position:absolute;
+      border-radius:50%;
+      filter:blur(4px);
+      opacity:0.45;
+      animation-timing-function:ease-in-out;
+      animation-iteration-count:infinite;
+    }
+
+    .shape1{
+      width:220px;
+      height:220px;
+      background:radial-gradient(circle, rgba(139,92,246,0.95), rgba(139,92,246,0.05));
+      top:8%;
+      left:4%;
+      animation:floatOne 12s infinite;
+    }
+
+    .shape2{
+      width:260px;
+      height:260px;
+      background:radial-gradient(circle, rgba(34,211,238,0.85), rgba(34,211,238,0.05));
+      top:55%;
+      left:78%;
+      animation:floatTwo 14s infinite;
+    }
+
+    .shape3{
+      width:170px;
+      height:170px;
+      background:radial-gradient(circle, rgba(255,79,216,0.9), rgba(255,79,216,0.05));
+      top:70%;
+      left:8%;
+      animation:floatThree 10s infinite;
+    }
+
+    .shape4{
+      width:130px;
+      height:130px;
+      background:radial-gradient(circle, rgba(255,255,255,0.7), rgba(255,255,255,0.03));
+      top:18%;
+      left:82%;
+      animation:floatFour 11s infinite;
+    }
+
+    .shape5{
+      width:100px;
+      height:100px;
+      background:radial-gradient(circle, rgba(255,209,102,0.8), rgba(255,209,102,0.04));
+      top:38%;
+      left:42%;
+      animation:floatFive 9s infinite;
+    }
+
+    .sparkles span{
+      position:absolute;
+      width:4px;
+      height:4px;
+      border-radius:50%;
+      background:white;
+      box-shadow:0 0 10px white;
+      animation:twinkle 3s infinite ease-in-out;
+    }
+
+    .sparkles span:nth-child(1){ top:12%; left:18%; animation-delay:0s; }
+    .sparkles span:nth-child(2){ top:24%; left:74%; animation-delay:0.8s; }
+    .sparkles span:nth-child(3){ top:62%; left:86%; animation-delay:1.4s; }
+    .sparkles span:nth-child(4){ top:80%; left:22%; animation-delay:0.4s; }
+    .sparkles span:nth-child(5){ top:42%; left:55%; animation-delay:1.1s; }
+    .sparkles span:nth-child(6){ top:16%; left:90%; animation-delay:1.8s; }
+
+    @keyframes twinkle{
+      0%,100%{opacity:0.2; transform:scale(1);}
+      50%{opacity:1; transform:scale(1.8);}
+    }
+
+    @keyframes floatOne{
+      0%,100%{transform:translateY(0) translateX(0);}
+      50%{transform:translateY(-30px) translateX(20px);}
+    }
+
+    @keyframes floatTwo{
+      0%,100%{transform:translateY(0) translateX(0);}
+      50%{transform:translateY(25px) translateX(-25px);}
+    }
+
+    @keyframes floatThree{
+      0%,100%{transform:translateY(0) translateX(0);}
+      50%{transform:translateY(-20px) translateX(18px);}
+    }
+
+    @keyframes floatFour{
+      0%,100%{transform:translateY(0) translateX(0);}
+      50%{transform:translateY(22px) translateX(-12px);}
+    }
+
+    @keyframes floatFive{
+      0%,100%{transform:translateY(0) translateX(0) scale(1);}
+      50%{transform:translateY(-16px) translateX(16px) scale(1.08);}
+    }
+
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,0.85), transparent),
+        radial-gradient(2px 2px at 120px 90px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1.5px 1.5px at 240px 160px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 360px 70px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1.5px 1.5px at 460px 140px, rgba(255,255,255,0.5), transparent);
+      background-size:500px 220px;
+      opacity:0.22;
+      pointer-events:none;
+      animation:starsMove 14s linear infinite;
+      z-index:0;
+    }
+
+    @keyframes starsMove{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(8px);}
+      100%{transform:translateY(0);}
+    }
+
+    .container{
+      width:min(1150px, 92%);
+      margin:auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .glass{
+      background:var(--card);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border:1px solid var(--card-border);
+      border-radius:24px;
+      box-shadow:var(--shadow);
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      margin:16px auto 0;
+      width:min(1150px, 92%);
+    }
+
+    .navbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:16px 24px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .navbar::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transform:translateX(-100%);
+      animation:navShine 6s linear infinite;
+    }
+
+    @keyframes navShine{
+      100%{transform:translateX(100%);}
+    }
+
+    .logo{
+      font-family:'Orbitron', sans-serif;
+      font-size:1.2rem;
+      letter-spacing:2px;
+      font-weight:800;
+      color:#fff;
+      text-shadow:
+        0 0 8px rgba(255,255,255,0.5),
+        0 0 18px rgba(139,92,246,0.8),
+        0 0 28px rgba(34,211,238,0.5);
+    }
+
+    .nav-links{
+      display:flex;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .nav-links a{
+      color:var(--text);
+      text-decoration:none;
+      font-weight:500;
+      position:relative;
+      transition:0.3s;
+    }
+
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0;
+      bottom:-4px;
+      width:0;
+      height:2px;
+      background:linear-gradient(90deg, var(--accent), var(--accent2));
+      transition:0.3s;
+    }
+
+    .nav-links a:hover{
+      color:#fff;
+      text-shadow:0 0 10px rgba(34,211,238,0.7);
+    }
+
+    .nav-links a:hover::after{
+      width:100%;
+    }
+
+    .hero{
+      padding:90px 0 50px;
+    }
+
+    .hero-wrap{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:32px;
+      align-items:center;
+    }
+
+    .hero-text{
+      padding:36px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-text::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(139,92,246,0.08), rgba(34,211,238,0.05), rgba(255,79,216,0.08));
+      pointer-events:none;
+    }
+
+    .badge{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.14);
+      color:var(--muted);
+      font-size:0.9rem;
+      margin-bottom:18px;
+      box-shadow:0 0 20px rgba(139,92,246,0.15);
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1{
+      font-family:'Orbitron', sans-serif;
+      font-size:clamp(2.4rem, 5vw, 4.3rem);
+      line-height:1.1;
+      margin-bottom:14px;
+      background:linear-gradient(90deg,#ffffff,#d8c8ff,#83ecff,#ffb8ee);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 18px rgba(139,92,246,0.4);
+      position:relative;
+      z-index:1;
+    }
+
+    .hero h1 span{
+      color:#ffb8ee;
+      -webkit-text-fill-color:initial;
+      text-shadow:
+        0 0 12px rgba(255,79,216,0.8),
+        0 0 28px rgba(255,79,216,0.45);
+    }
+
+    .typing-line{
+      font-size:1.15rem;
+      color:#ffffff;
+      margin-bottom:18px;
+      min-height:32px;
+      font-weight:600;
+      position:relative;
+      z-index:1;
+    }
+
+    .typing-text{
+      color:#8feaff;
+      border-right:3px solid #8feaff;
+      padding-right:6px;
+      white-space:nowrap;
+      overflow:hidden;
+      display:inline-block;
+      animation:blink 0.8s step-end infinite;
+      text-shadow:0 0 14px rgba(34,211,238,0.65);
+    }
+
+    @keyframes blink{
+      50%{border-color:transparent;}
+    }
+
+    .hero p{
+      color:var(--muted);
+      font-size:1rem;
+      max-width:650px;
+      margin-bottom:24px;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-btns{
+      display:flex;
+      gap:16px;
+      flex-wrap:wrap;
+      position:relative;
+      z-index:1;
+    }
+
+    .btn{
+      position:relative;
+      text-decoration:none;
+      padding:14px 24px;
+      border-radius:16px;
+      font-weight:600;
+      overflow:hidden;
+      transition:0.35s;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      color:#fff;
+      background:linear-gradient(90deg, var(--accent), var(--accent3));
+      box-shadow:
+        0 0 12px rgba(139,92,246,0.6),
+        0 0 25px rgba(255,79,216,0.45),
+        0 10px 25px rgba(139,92,246,0.3);
+      animation:glowPulse 2.4s infinite;
+    }
+
+    .btn-outline{
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.25);
+      background:rgba(255,255,255,0.06);
+      box-shadow:0 0 8px rgba(34,211,238,0.15), inset 0 0 8px rgba(255,255,255,0.04);
+    }
+
+    .btn::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition:0.6s;
+    }
+
+    .btn:hover::before{
+      left:100%;
+    }
+
+    .btn:hover{
+      transform:translateY(-4px) scale(1.03);
+    }
+
+    @keyframes glowPulse{
+      0%,100%{
+        box-shadow:
+          0 0 12px rgba(139,92,246,0.6),
+          0 0 25px rgba(255,79,216,0.45),
+          0 10px 25px rgba(139,92,246,0.3);
+      }
+      50%{
+        box-shadow:
+          0 0 20px rgba(139,92,246,0.95),
+          0 0 36px rgba(255,79,216,0.75),
+          0 12px 30px rgba(139,92,246,0.45);
+      }
+    }
+
+    .hero-image{
+      position:relative;
+      padding:26px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:430px;
+      overflow:hidden;
+    }
+
+    .hero-image::before{
+      content:"";
+      position:absolute;
+      width:290px;
+      height:290px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(139,92,246,0.55), rgba(34,211,238,0.18), transparent 70%);
+      filter:blur(14px);
+      z-index:0;
+      animation:aura 4s ease-in-out infinite;
+    }
+
+    .hero-image::after{
+      content:"";
+      position:absolute;
+      inset:12px;
+      border-radius:26px;
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:inset 0 0 40px rgba(34,211,238,0.06);
+      z-index:0;
+    }
+
+    @keyframes aura{
+      0%,100%{transform:scale(1);}
+      50%{transform:scale(1.1);}
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:320px;
+      height:390px;
+      object-fit:cover;
+      object-position:center top;
+      border-radius:30px;
+      border:2px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 20px 45px rgba(0,0,0,0.35),
+        0 0 25px rgba(139,92,246,0.28);
+      position:relative;
+      z-index:1;
+      display:block;
+    }
+
+    section{
+      padding:28px 0;
+    }
+
+    .section-title{
+      font-family:'Orbitron', sans-serif;
+      font-size:2rem;
+      text-align:center;
+      margin-bottom:20px;
+      background:linear-gradient(90deg,#ffffff,#d5c3ff,#7de7ff,#ffb8ee);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      text-shadow:0 0 14px rgba(139,92,246,0.25);
+    }
+
+    .section-sub{
+      text-align:center;
+      color:var(--muted);
+      margin-bottom:28px;
+    }
+
+    .about-card,
+    .contact-card{
+      padding:30px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .about-card::before,
+    .project-card::before,
+    .achievement-item::before,
+    .contact-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(139,92,246,0.06), rgba(34,211,238,0.03), rgba(255,79,216,0.06));
+      pointer-events:none;
+    }
+
+    .about-card p{
+      text-align:center;
+      color:var(--muted);
+      max-width:850px;
+      margin:auto;
+      position:relative;
+      z-index:1;
+    }
+
+    .skills-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:18px;
+    }
+
+    .skill{
+      padding:18px;
+      text-align:center;
+      border-radius:20px;
+      font-weight:600;
+      color:#fff;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      transition:0.35s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .skill::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+      transition:0.6s;
+    }
+
+    .skill:hover::before{
+      left:100%;
+    }
+
+    .skill:hover,
+    .project-card:hover,
+    .contact-box:hover,
+    .achievement-item:hover{
+      box-shadow:0 0 25px rgba(139,92,246,0.24);
+    }
+
+    .skill:hover{
+      transform:translateY(-6px) scale(1.03);
+      background:linear-gradient(135deg, rgba(139,92,246,0.22), rgba(34,211,238,0.12));
+    }
+
+    .timeline{
+      display:grid;
+      gap:18px;
+    }
+
+    .achievement-item{
+      padding:22px;
+      transition:0.3s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .achievement-item h3,
+    .achievement-item p{
+      position:relative;
+      z-index:1;
+    }
+
+    .achievement-item p{
+      color:var(--muted);
+    }
+
+    .projects-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
+      gap:24px;
+    }
+
+    .project-card{
+      padding:24px;
+      transition:0.35s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .project-card .project-content{
+      position:relative;
+      z-index:1;
+    }
+
+    .project-content h3{
+      margin-bottom:10px;
+    }
+
+    .project-content p{
+      color:var(--muted);
+      margin-bottom:14px;
+      font-size:0.95rem;
+    }
+
+    .tag-list{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .tag{
+      font-size:0.82rem;
+      padding:7px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.08);
+      color:#edf0ff;
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 0 10px rgba(139,92,246,0.08);
+    }
+
+    .contact-card{
+      text-align:center;
+    }
+
+    .contact-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+      gap:18px;
+      margin-top:18px;
+      position:relative;
+      z-index:1;
+    }
+
+    .contact-box{
+      padding:22px;
+      border-radius:20px;
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.12);
+      transition:0.3s;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .contact-box::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:-100%;
+      width:100%;
+      height:100%;
+      background:linear-gradient(120deg, transparent, rgba(255,255,255,0.16), transparent);
+      transition:0.6s;
+    }
+
+    .contact-box:hover::before{
+      left:100%;
+    }
+
+    .contact-box a{
+      color:var(--muted);
+      text-decoration:none;
+      word-break:break-word;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(50px) scale(0.98);
+      transition:all 0.9s ease;
+    }
+
+    .reveal.active{
+      opacity:1;
+      transform:translateY(0) scale(1);
+    }
+
+    .reveal-left{
+      opacity:0;
+      transform:translateX(-60px);
+      transition:all 0.9s ease;
+    }
+
+    .reveal-left.active{
+      opacity:1;
+      transform:translateX(0);
+    }
+
+    .reveal-right{
+      opacity:0;
+      transform:translateX(60px);
+      transition:all 0.9s ease;
+    }
+
+    .reveal-right.active{
+      opacity:1;
+      transform:translateX(0);
+    }
+
+    footer{
+      padding:28px 0 40px;
+      text-align:center;
+      color:#b7c0f0;
+      font-size:0.95rem;
+      position:relative;
+      z-index:1;
+    }
+
+    @media (max-width:900px){
+      .hero-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .hero-text{
+        order:2;
+        text-align:center;
+      }
+
+      .hero p{
+        margin-left:auto;
+        margin-right:auto;
+      }
+
+      .hero-btns{
+        justify-content:center;
+      }
+
+      .hero-image{
+        order:1;
+      }
+
+      .navbar{
+        flex-direction:column;
+        gap:14px;
+      }
+    }
+
+    @media (max-width:768px){
+      .cursor-dot,
+      .cursor-outline{
+        display:none;
+      }
+
+      body,
+      a, button, .btn, .skill, .project-card, .contact-box, .achievement-item{
+        cursor:auto;
+      }
+    }
+
+    @media (max-width:520px){
+      .hero h1{
+        font-size:2.2rem;
+      }
+
+      .hero-image img{
+        height:320px;
+      }
+
+      .hero-text,
+      .about-card,
+      .contact-card{
+        padding:22px;
+      }
+
+      .typing-line{
+        font-size:1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <div class="floating-bg">
+    <span class="shape shape1"></span>
+    <span class="shape shape2"></span>
+    <span class="shape shape3"></span>
+    <span class="shape shape4"></span>
+    <span class="shape shape5"></span>
+
+    <div class="sparkles">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <header>
+    <div class="navbar glass">
+      <div class="logo">ABHI.exe</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero reveal">
+      <div class="hero-wrap">
+        <div class="hero-text glass">
+          <span class="badge">Anime Style Portfolio • AI & Data Science</span>
+          <h1>Hi, I'm <span>ABHISHEK P</span></h1>
+
+          <div class="typing-line">
+            <span id="typing-text" class="typing-text"></span>
+          </div>
+
+          <p>
+            I am an AI & Data Science student passionate about Artificial Intelligence,
+            Problem Solving, web development, and building smart projects with a creative anime-inspired style.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+
+        <div class="hero-image glass">
+          <img src="./images/profile.png" alt="Abhishek P">
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="reveal-left">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-sub">A short introduction about who I am</p>
+      <div class="about-card glass">
+        <p>
+          Hello, I am <strong>Abhishek P</strong>. I am focused on Artificial Intelligence,
+          data-driven problem solving, and building creative technical projects.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="reveal-right">
+      <h2 class="section-title">Skills</h2>
+      <p class="section-sub">My core technical strengths</p>
+      <div class="skills-grid">
+        <div class="skill glass">Artificial Intelligence (AI)</div>
+        <div class="skill glass">Problem Solving</div>
+        <div class="skill glass">Tableau</div>
+        <div class="skill glass">HTML</div>
+        <div class="skill glass">C</div>
+        <div class="skill glass">C++</div>
+        <div class="skill glass">Power BI</div>
+        <div class="skill glass">Engineering</div>
+      </div>
+    </section>
+
+    <section id="achievements" class="reveal-left">
+      <h2 class="section-title">Achievements</h2>
+      <p class="section-sub">Certificates and participation highlights</p>
+      <div class="timeline">
+        <div class="achievement-item glass">
+          <h3>VexStorm’26 Hackathon – Participation Certificate</h3>
+          <p>
+            Participated in VexStorm’26 Hackathon and strengthened teamwork, innovation,
+            and practical problem-solving under time-based challenge conditions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal-right">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">Work that reflects my learning and creativity</p>
+      <div class="projects-grid">
+        <div class="project-card glass">
+          <div class="project-content">
+            <h3>AI-driven CNN+KNN Fusion Software for Plant Disease Classifier</h3>
+            <p>
+              Developed an intelligent plant disease classification system using a CNN+KNN fusion
+              approach to improve disease prediction accuracy from plant leaf images.
+            </p>
+            <div class="tag-list">
+              <span class="tag">AI</span>
+              <span class="tag">CNN</span>
+              <span class="tag">KNN</span>
+              <span class="tag">Classification</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-sub">Get in touch with me</p>
+      <div class="contact-card glass">
+        <div class="contact-grid">
+          <div class="contact-box">
+            <h3>Email</h3>
+            <a href="mailto:abhishekalekka10@gmail.com">abhishekalekka10@gmail.com</a>
+          </div>
+          <div class="contact-box">
+            <h3>Phone</h3>
+            <a href="tel:7338476514">7338476514</a>
+          </div>
+          <div class="contact-box">
+            <h3>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/abhi1abhi" target="_blank">linkedin.com/in/abhi1abhi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Abhishek P. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const texts = [
+      "AI & Data Science Student",
+      "Problem Solver",
+      "Web Developer",
+      "Creative Tech Builder"
+    ];
+
+    const typingText = document.getElementById("typing-text");
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      const currentText = texts[textIndex];
+
+      if (!isDeleting) {
+        typingText.textContent = currentText.substring(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentText.length) {
+          isDeleting = true;
+          setTimeout(typeEffect, 1200);
+          return;
+        }
+      } else {
+        typingText.textContent = currentText.substring(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          isDeleting = false;
+          textIndex = (textIndex + 1) % texts.length;
+        }
+      }
+
+      setTimeout(typeEffect, isDeleting ? 50 : 100);
+    }
+
+    typeEffect();
+
+    const cursorDot = document.querySelector(".cursor-dot");
+    const cursorOutline = document.querySelector(".cursor-outline");
+
+    let mouseX = 0;
+    let mouseY = 0;
+    let outlineX = 0;
+    let outlineY = 0;
+
+    window.addEventListener("mousemove", (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursorDot.style.left = `${mouseX}px`;
+      cursorDot.style.top = `${mouseY}px`;
+    });
+
+    function animateCursor() {
+      outlineX += (mouseX - outlineX) * 0.15;
+      outlineY += (mouseY - outlineY) * 0.15;
+      cursorOutline.style.left = `${outlineX}px`;
+      cursorOutline.style.top = `${outlineY}px`;
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    const hoverItems = document.querySelectorAll("a, button, .btn, .skill, .project-card, .contact-box, .achievement-item");
+
+    hoverItems.forEach((item) => {
+      item.addEventListener("mouseenter", () => {
+        cursorOutline.style.width = "52px";
+        cursorOutline.style.height = "52px";
+        cursorOutline.style.background = "rgba(255,255,255,0.06)";
+        cursorOutline.style.border = "2px solid rgba(34,211,238,0.8)";
+      });
+
+      item.addEventListener("mouseleave", () => {
+        cursorOutline.style.width = "34px";
+        cursorOutline.style.height = "34px";
+        cursorOutline.style.background = "transparent";
+        cursorOutline.style.border = "2px solid rgba(255,255,255,0.5)";
+      });
+    });
+
+    const revealElements = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+
+    function revealOnScroll() {
+      const triggerBottom = window.innerHeight * 0.85;
+      revealElements.forEach((el) => {
+        const boxTop = el.getBoundingClientRect().top;
+        if (boxTop < triggerBottom) {
+          el.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+  </script>
+</body>
+</html>
