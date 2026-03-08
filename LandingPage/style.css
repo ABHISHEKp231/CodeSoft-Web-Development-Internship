@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #0a192f;
+    color: white;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline hover effect */
+header nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: #64ffda;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #0a192f, #112240);
+    color: white;
+    text-align: center;
+    padding: 120px 20px;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* Button Animation */
+.btn {
+    padding: 12px 25px;
+    background-color: #64ffda;
+    border: none;
+    color: #0a192f;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background-color: white;
+    transform: scale(1.1);
+}
+
+/* About Section */
+.about {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f4f4f4;
+    animation: slideUp 1.5s ease-in-out;
+}
+
+/* Domains Section */
+.domains {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.domain-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+/* Card Hover Effect */
+.domain-box {
+    width: 250px;
+    padding: 30px;
+    background-color: #112240;
+    color: white;
+    border-radius: 8px;
+    transition: 0.4s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.domain-box:hover {
+    transform: translateY(-15px);
+    background-color: #64ffda;
+    color: #0a192f;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0a192f;
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
