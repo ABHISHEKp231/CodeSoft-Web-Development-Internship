@@ -1,0 +1,90 @@
+.cursor-dot,
+.cursor-outline{
+  position:fixed;
+  top:0;
+  left:0;
+  transform:translate(-50%, -50%);
+  pointer-events:none;
+  z-index:9999;
+  border-radius:50%;
+}
+
+.cursor-dot{
+  width:10px;
+  height:10px;
+  background:linear-gradient(135deg, #22d3ee, #ff4fd8);
+  box-shadow:0 0 12px rgba(34,211,238,0.7);
+}
+
+.cursor-outline{
+  width:34px;
+  height:34px;
+  border:2px solid rgba(255,255,255,0.5);
+  box-shadow:0 0 18px rgba(139,92,246,0.35);
+  transition:width 0.2s ease, height 0.2s ease, border 0.2s ease, background 0.2s ease;
+}
+
+body{
+  cursor:none;
+}
+
+a, button, .btn, .skill, .project-card, .contact-box, .achievement-item{
+  cursor:none;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(50px) scale(0.98);
+  transition:all 0.9s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+.reveal-left{
+  opacity:0;
+  transform:translateX(-60px);
+  transition:all 0.9s ease;
+}
+
+.reveal-left.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.reveal-right{
+  opacity:0;
+  transform:translateX(60px);
+  transition:all 0.9s ease;
+}
+
+.reveal-right.active{
+  opacity:1;
+  transform:translateX(0);
+}
+
+.nav-links a:hover,
+.contact-box:hover a{
+  color:#ffffff;
+}
+
+.skill:hover,
+.project-card:hover,
+.contact-box:hover,
+.achievement-item:hover{
+  box-shadow:0 0 25px rgba(139,92,246,0.22);
+}
+
+@media (max-width: 768px){
+  .cursor-dot,
+  .cursor-outline{
+    display:none;
+  }
+
+  body,
+  a, button, .btn, .skill, .project-card, .contact-box, .achievement-item{
+    cursor:auto;
+  }
+}
